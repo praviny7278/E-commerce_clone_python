@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.signin-container {
+    width: 60%;
+    margin: auto;
+    justify-content: center ;
+    /* border: solid 1px black; */
+    padding: 40px 20px;
+}
+
+.signin-container h2 {
+    text-align: center;
+    margin: 20px 0px 70px 0px;
+}
+
+.cont {
+    width: 70%;
+    margin: auto;
+    border: solid 1px red;  
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+form input {
+    width: 70%;
+    padding: 9px 20px;
+    font-size: 16px;
+    border-radius: 19px;
+    margin: 7px 0px;
+    outline: none;
+    border: solid 1px gray;  
+}
+
+#checkbox {
+    width: 8%;
+}
+
+#f-password {
+    width: 40%;
+    margin-top: 10px;
+    padding: 1px 0px 1px 50px;
+    border: none;
+}
+
+#Login-btn {
+    margin-top: 30px;
+    width: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#Login-btn:hover {
+    background-color: aqua;
+    transition: 0.5s;
+}
+
+.facebook-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-top: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.google-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.signin-container h3 {
+    text-align: center;
+    margin: 50px 0px;
+}
+
+.signin-container h3 a{ 
+    margin-left: 6px;
+    text-decoration: none;
+    color: black;
+}
+
+.signin-container h3 a:hover{ 
+    color: red;
+    transition: 0.2s all;
+}

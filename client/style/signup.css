@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    background-image: url('https://images.unsplash.com/photo-1620570623737-efc0ec4ab486?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.signin-container {
+    width: 40%;
+    margin: auto;
+    border: solid 1px white;
+    padding: 40px;
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.233);
+}
+
+form input {
+    width: 60%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: solid 1px rgb(255, 255, 255);
+    outline: none;
+    margin-top: 10px;
+    background: transparent;
+    color: white;
+}
+
+form input:focus {
+    box-shadow: rgba(255, 255, 255, 0.938) 0px 3px 6px, rgba(255, 255, 255, 0.938) 0px 3px 6px;
+}
+
+#checkbox {
+    margin-top: 25px;
+    width: 3%;
+    text-align: start;
+}
+
+#register-btn {
+    width: 40%;
+    margin: 20px 0px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#register-btn:hover {
+    transition: 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.11);
+    box-shadow: rgba(255, 255, 255, 0.288) 0px 54px 55px, rgba(255, 255, 255, 0.288) 0px -12px 30px, rgba(255, 255, 255, 0.281) 0px 4px 6px, rgba(255, 255, 255, 0.315) 0px 12px 13px, rgba(252, 251, 251, 0.377) 0px -3px 5px;
+}
+
+.facebook-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.google-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+a {
+    color: white;
+    display: inline-block;
+    margin: 30px 10px 0px 10px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(41, 162, 209);
+    text-decoration: underline;
+    transition: 0.3s ease all;
+}
