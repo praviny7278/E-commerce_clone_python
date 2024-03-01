@@ -11,6 +11,10 @@ body {
     background-position: center;
 }
 
+#checkbox:checked {
+    accent-color: white;
+}
+
 .signin-container {
     width: 40%;
     margin: auto;
@@ -19,7 +23,9 @@ body {
     margin-top: 50px;
     text-align: center;
     border-radius: 8px;
-    background-color: rgba(0, 0, 0, 0.233);
+    backdrop-filter: blur(3px);
+    /* background: rgba(255, 255, 255, 0.068); */
+    /* background-color: rgba(0, 0, 0, 0.233); */
 }
 
 form input {
@@ -42,6 +48,7 @@ form input:focus {
     margin-top: 25px;
     width: 3%;
     text-align: start;
+    padding: 0px;
 }
 
 #register-btn {

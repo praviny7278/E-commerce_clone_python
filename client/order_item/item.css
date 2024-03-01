@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body {
+    background-color: rgb(2, 0, 0);
+}
+
+/*=================== Nav-bar section ==================*/
+.nav-bar {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(30px);
+    border-bottom: solid 1px rgba(255, 255, 255, 0.349);
+}
+
+.nav-items {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.nav-items div {
+    /* border: solid red 1px; */
+    width: 27%;
+    margin: auto;
+    text-align: center;
+    margin-top: 12px;
+}
+
+.logo {
+    width: 200px;
+    height: 50px;
+    object-fit: fill;
+}
+
+#nav-buttos {
+    width: 100%;
+    margin-top: 10px;
+    display: block;
+}
+
+#nav-buttos a {
+    text-align: center;
+    font-size: 15px;
+    padding: 5px 15px;
+    margin-left: 18px;
+    border-radius: 7px;
+    /* border: none; */
+    text-decoration: none;
+    color: #fff;
+    /* background-color: #fff; */
+    cursor: pointer;
+    border: solid 1px rgba(226, 221, 221, 0.705);
+}
+
+#nav-buttos a:hover {
+    box-shadow: rgba(78, 217, 241, 0.938) 2px 5px 40px 5px, rgb(91, 196, 241) 0px 2px 16px 0px;
+}
+
+#nav-profile {
+    margin-right: 0px;
+    width: 100%;
+    padding: 5px 10px;
+    color: #fff;
+    display: none;
+    /* background-color: white; */
+}
+
+.fa-user {
+    font-size: 25px;
+    cursor: pointer;
+    margin-right: 8px;
+
+}
+
+.fa-user:hover {
+    transition: 0.2s ease-in-out;
+    box-shadow: rgba(78, 217, 241, 0.938) 2px 5px 40px 5px, rgb(91, 196, 241) 0px 2px 16px 0px;
+}
+
+.fa-cart-shopping {
+    float: inline-end;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    /* transition: 0.2s ease-in-out; */
+}
+
+.fa-cart-shopping:hover {
+    transition: 0.2s ease-in-out;
+    background-color: transparent;
+    box-shadow: rgba(78, 217, 241, 0.938) 2px 5px 40px 5px, rgb(91, 196, 241) 0px 2px 16px 0px;
+}
+
+.header {
+    display: flex;
+    padding: 20px;
+    /* border: solid 1px red; */
+    color: white;
+    margin-top: 70px;
+    justify-content: space-evenly;
+}
+
+
+.product-container {
+    width: 50%;
+    padding: 20px;
+    border: solid 1px red;
+}
+
+.card {
+    border: solid 1px gold;
+}
+
+.card-img {
+    width: 270px;
+    height: 300px;
+    margin: auto;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+
+.product-purchase-cont {
+    width: 50%;
+}
