@@ -5,6 +5,7 @@
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
+    color: white;
 }
 
 body {
@@ -29,7 +30,7 @@ body {
 }
 
 .nav-items div {
-    /* border: solid red 1px; */
+    border: solid red 1px;
     width: 27%;
     margin: auto;
     text-align: center;
@@ -113,18 +114,21 @@ body {
 
 .product-container {
     width: 50%;
-    padding: 20px;
-    border: solid 1px red;
+    /* padding: 20px; */
+    /* border: solid 1px red; */
 }
 
 .card {
-    border: solid 1px gold;
+    padding: 10px;
+    text-align: center;
+    /* border: solid 1px gold; */
 }
 
 .card-img {
-    width: 270px;
+    width: 350px;
     height: 300px;
     margin: auto;
+    box-shadow: rgba(221, 156, 17, 0.479) 0px 5px 15px;
 }
 
 .card-img img {
@@ -133,7 +137,175 @@ body {
     object-fit: fill;
 }
 
+.card-name {
+    margin-top: 30px;
+    /* border: solid 1px gold; */
+}
+
+.card-price {
+    margin-top: 10px;
+}
+
+.card-rating {
+    margin-top: 10px;
+}
+
+.card-buy-btn {
+   display: block;
+   margin: auto;
+   font-size: 1.1rem;
+   font-weight: bold;
+   padding: 6px;
+   width: 300px;
+   margin-top: 25px;
+   margin-bottom: 10px;
+   border-radius: 6px;
+   border: solid 1px gray;
+   cursor: pointer;
+   background-color: transparent;
+   color: white;
+}
+
+.card-buy-btn:hover {
+    background-color: rgba(12, 29, 29, 0.938);
+    transition: .3s ease-in-out;
+    box-shadow: rgba(78, 217, 241, 0.938) 2px 1px 0px 1px, rgb(91, 196, 241) 0px 0px 5px 5px;
+
+}
+
+
+
+
+
+
+
+
+
 
 .product-purchase-cont {
     width: 50%;
+    /* border: solid 1px rgb(255, 0, 0); */
+}
+
+.item-price {
+    width: 70%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.item-price li {
+    list-style: none;
+    text-align: start;
+    /* border: solid 1px rgb(10, 248, 1); */
+}
+
+form {
+    width: 80%;
+    margin: auto;
+    /* border: solid 1px rgb(10, 248, 1); */
+    text-align: center;
+    margin-top: 60px;
+}
+
+form input {
+    width: 80%;
+    font-size: 16px;
+    padding: 7px 18px;
+    margin: 8px 0px;
+    border: solid 1px gray;
+    outline: none;
+    border-radius: 15px;
+    background-color: transparent;
+    
+}
+
+form input:focus {
+    box-shadow: rgba(255, 255, 255, 0.568) 0px 0px 0px 2px, rgba(255, 255, 255, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.479) 0px 1px 0px inset;
+}
+
+form input[type = 'submit'] {
+    width: 60%;
+    margin-top: 27px;   
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 14px;
+    border: solid 1px gray;
+    background-color: transparent;
+    cursor: pointer;
+
+}
+
+form input[type = 'submit']:hover {
+    background-color: rgba(12, 29, 29, 0.938);
+    transition: .3s ease-in-out;
+    box-shadow: rgba(78, 217, 241, 0.938) 2px 1px 0px 1px, rgb(91, 196, 241) 0px 0px 5px 5px;
+
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .nav-items div:nth-child(2) {
+        display: none;
+    }
+
+    .nav-items div {
+        width: 50%;
+    }
+
+    .card-img {
+        width: 300px;
+        height: 250px;
+        margin: auto;
+        box-shadow: rgba(221, 156, 17, 0.479) 0px 5px 15px;
+    }
+}
+
+
+
+@media screen and (max-width: 780px) {
+    .header {
+        display: block;
+        /* margin: auto; */
+    }
+
+    .product-container {
+        width: 100%;
+        
+    }
+
+    .card-img {
+        width: 60%;
+        height: 250px;
+        margin: auto;
+        box-shadow: rgba(221, 156, 17, 0.479) 0px 5px 15px;
+    }
+
+    .card-name {
+        margin-top: 50px;
+    }
+
+    .card-buy-btn {
+        width: 55%;
+    }
+
+    .product-purchase-cont {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        transform: scaleY(100%);
+        margin: auto;
+        border: solid 1px green;
+        backdrop-filter: blur(10px); /* Adjust the blur radius as needed */
+  background-color: rgba(255, 255, 255, 0.075);
+    }
+
+    form {
+        z-index: 1;
+    }
+
+
 }
