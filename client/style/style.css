@@ -12,6 +12,95 @@ body {
     background-color: rgb(2, 0, 0);
 }
 
+/*=================== Hamburger section ==================*/
+.float-hamburger {
+    position: absolute;
+    z-index: 1000;
+    width: 50px;
+    right: 0px;
+    top: 15px;
+    display: none;
+    /* border: solid red 1px; */
+    /* margin: auto; */
+}
+
+.menu-toggle {
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 100%;
+    height: 2px;
+    background-color: #fffafa;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    transition: 0.4s;
+    overflow-x: hidden;
+    padding-top: 0px;
+}
+
+/* Existing styles remain unchanged */
+
+.menu-header {
+    padding: 15px;
+    text-align: right;
+    /* border: solid red 1px; */
+    text-align: center;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 30px;
+
+}
+
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu ul li {
+    width: 180px;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    /* border: 1px solid #555; */
+    transition: all ease 0.8s;
+}
+
+.menu ul li:hover {
+    width: 230px;
+    box-shadow: rgba(255, 254, 254, 0.664) 0px 5px 15px;
+}
+
+
+.menu ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu ul li a:hover {
+    color: #ccc;
+    width: 230px;
+}
+
+/*=================== Hamburger section ==================*/
+
+
+
 /*=================== Nav-bar section ==================*/
 .nav-bar {
     width: 100%;
@@ -39,8 +128,9 @@ body {
 
 .logo {
     width: 200px;
-    height: 50px;
+    height: 55px;
     object-fit: fill;
+    /* mix-blend-mode:color-dodge; */
 }
 
 #nav-buttos {
@@ -73,7 +163,14 @@ body {
     padding: 5px 10px;
     color: #fff;
     display: none;
+    
+}
+
+.profile-cont {
     /* background-color: white; */
+    cursor: pointer;
+    position: relative;  
+    
 }
 
 .fa-user {
@@ -83,10 +180,40 @@ body {
 
 }
 
-.fa-user:hover {
+.profile {
+    position: absolute;
+    top: 10px;
+    left: 420px; 
+    list-style: none;  
+    width: 100px; 
+    padding-top: 20px;
+}
+
+.profile li {
+    padding: 2px;
+    transition: all .5s;
+    border-radius: 5px;
+}
+
+.profile li i {
+    margin-left: 8px;
+}
+
+.profile li:hover {
+    border: solid 1px red;
+    
+}
+
+.profile-cont:hover{
+    .fa-user{
     transition: 0.2s ease-in-out;
     box-shadow: rgba(78, 217, 241, 0.938) 2px 5px 40px 5px, rgb(91, 196, 241) 0px 2px 16px 0px;
-}
+    }
+
+    .profile {  
+        left: 20px;
+    }
+} 
 
 .fa-cart-shopping {
     float: inline-end;
@@ -126,7 +253,7 @@ body {
     position: absolute;
     top: 260px;
     left: 150px;
-    opacity: 1;
+    /* opacity: 1; */
 }
 
 .poster-section h4 {
@@ -166,7 +293,7 @@ body {
     width: 100%;
     padding: 20px;
     margin-top: 10px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
 }
 
 .cards-section-searchbar {
@@ -203,12 +330,14 @@ body {
 .card-img {
     width: 95%;;
     height: 300px;
+    border-radius: 5px;
 }
 
 .card-img img{
     width: 100%;
     height: 100%;
     object-fit: fill;
+    border-radius: 5px;
     /* filter: drop-shadow(10px 1px 2px black); */
 }
 
@@ -261,7 +390,144 @@ body {
     width: 90%;
     height: 400px;
     margin: auto;
+    margin-top: 50px;
     padding: 30px;
     text-align: center;
 }
+
+.footer-section h3 {
+    margin-top: 16px;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+
+.footer-section p {
+    margin-top: 6px;
+}
+
+.social-media-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: fill;
+    cursor: pointer;
+    margin: 30px 15px;
+    transition: 0.3s all ease;
+}
+
+.social-media-container img:hover {
+    box-shadow: rgba(255, 255, 255, 0.25) 0px 54px 55px, rgba(255, 255, 255, 0.12) 0px -12px 30px, rgba(255, 255, 255, 0.12) 0px 4px 6px, rgba(255, 255, 255, 0.17) 0px 12px 13px, rgba(255, 255, 255, 0.09) 0px -3px 5px;
+}
 /*=================== Footer section ==================*/
+
+
+
+
+
+
+@media screen and (max-width: 980px) {
+    .nav-items div:nth-child(2) {
+        display: none;
+    }
+
+    .nav-items div {
+        width: 50%;
+    }
+
+    .poster-section h2 {
+        font-size: 30px;
+        left: 100px;
+        top: 350px;
+    }
+
+    .poster-section h4 {
+        font-size: 20px;
+        left: 100px;
+        top: 400px;
+    }
+
+    .cards-section-searchbar {
+        /* border: solid 1px red; */
+        width: 60%;
+    }
+
+    .cards-container {
+        gap: 0px;
+    }
+
+    .card {
+        width: 45%;
+        margin-top: 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+    .cards-container {
+        width: 100%;
+        padding: 20px 0px;
+    }
+    .card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .float-hamburger {
+        display: block;
+    }
+    
+    #nav-buttos {
+        display: none;
+    }
+
+    .nav-items div:nth-child(3) {
+        display: none;
+    }
+
+    .nav-items div:nth-child(1) {
+        width: 60%;
+    }
+
+    .logo {
+        width: 100%;
+    }
+    
+    .poster-section h2 {
+        font-size: 23px;
+        left: 50px;
+        top: 360px;
+    }
+
+    .poster-section h4 {
+        font-size: 13px;
+        left: 50px;
+        top: 400px;
+    }
+
+    .cards-section-searchbar {
+        /* border: solid 1px red; */
+        width: 70%;
+    }
+
+    .card-img {
+        height: 230px;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .card {
+        width: 80%;
+    }
+
+    .cards-section-searchbar {
+        /* border: solid 1px red; */
+        width: 80%;
+    }
+}
