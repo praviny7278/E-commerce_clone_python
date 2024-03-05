@@ -12,12 +12,30 @@
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
+    <div class="float-hamburger">
+     <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+     </div>
+     <div class="menu">
+        <div class="menu-header">
+            <span class="close-btn" onclick="toggleMenu()">&times;</span>
+        </div>
+        <ul>
+            <li><a href="./signIn/signin.html">Login</a></li>
+            <li><a href="./signUp/signup.html">Signup</a></li>
+            <li><a href="#">Profile setting</a></li>
+            <li id="logout"><a href="#">Logout</a></li>
+        </ul>
+     </div>
+    </div>
     <div class="header">
      <!-- /*=============== Nav-Bar start from here ===================*/ -->
       <nav class="nav-bar">
         <div class="nav-items">
           <div>
-            <img class="logo" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1420&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+            <img class="logo" src="https://cdn.dcpweb.co.uk/userfiles/gallery/file/portfolio_logo_pcfix_content.webp" alt="">
           </div>
           <div>
           </div>
@@ -27,12 +45,16 @@
               <a href="./signUp/signup.html">Create Account</a>
             </div>
             <div id="nav-profile">
-              <span>
+              <span class="profile-cont">
                 <span><i class="fa-solid fa-user"></i></span>
-                <span>Name</span>
+                <span id="user-name">Name</span>
+                <ul class="profile">
+                  <li>Setting</li>
+                  <li id="logout-btn">Logout<i class="fa-solid fa-right-from-bracket"></i></li>
+                </ul>
               </span>
               <span class="cart-img">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-cart-shopping" id="cart"></i>
               </span>
             </div>
           </div>  
@@ -51,21 +73,10 @@
       <div class="all-cards-section">
         <div class="cards-section-searchbar">
           <i class="fas fa-search"></i>
-          <input type="text" id="search" placeholder="Search for your favorite items">
+          <input type="text" id="search" placeholder="Search for your favorite items" onchange="a()">
         </div>
         <div class="cards-container" id="cards-container">
-          <!-- <div class="card">
-            <div class="card-img">
-              <img src="https://freepngimg.com/save/132901-logo-avatar-photos-png-file-hd/1743x1846" alt="">
-            </div>
-            <h4 class="card-name">Avatar</h4>
-            <h4 class="card-price">Price: $22</h4>
-            <p class="card-rating">Rating: 4.5</p>
-            <div class="card-buttons">
-              <button class="card-cart-btn" id="card-cart-btn">Add Cart</button>
-              <button class="card-fav-btn" id="card-fav-btn"><i class="fa-solid fa-heart"></i></button>
-            </div>
-          </div> -->
+          <!-- Append all cards here -->
         </div>
       </div>
       <!-- /*=============== Poster section end here ===================*/ -->
@@ -73,19 +84,17 @@
       <!-- /*=============== Footer section start from here ============*/ -->
       <footer>
         <div class="footer-section">
-          <h3>Company Name</h3>
-          <p>Address: </p>
-          <p>Email: </p>
-          <p>Cnatact Number</p>
+          <h3>PC Fix</h3>
+          <p>Email : fix@gmail.com</p>
+          <p>Cnatact Number : 123-456-6798</p>
           <p>Follow US</p>
           <div class="social-media-container">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
+            <img src="https://icones.pro/wp-content/uploads/2021/02/instagram-logo-icone4.png" alt="">
+            <img src="https://i.pinimg.com/736x/67/5c/af/675cafde751be69ba38a16504cb93e39.jpg" alt="">
+            <img src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg" alt="">
           </div>
           <div class="footer-copyrigth">
-            footer-copyrigth
+            <p>&copy; 2024 PC fix Name. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -94,5 +103,4 @@
     </div>
 </body>
 <script src="./script/script.js"></script>
-<!-- <script src=""></script> -->
 </html>

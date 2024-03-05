@@ -9,7 +9,7 @@
 body {
     background-image: url('https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 250dvh;
     background-position: center;
 }
 
@@ -50,7 +50,6 @@ body {
 form input {
     width: 70%;
     padding: 9px 20px;
-    font-size: 16px;
     border-radius: 19px;
     margin: 7px 0px;
     outline: none;
@@ -130,4 +129,84 @@ form input:focus-visible {
     /* color: rgba(51, 200, 245, 0.993); */
     transition: 0.2s all;
     text-decoration: underline;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .signin-container {
+        width: 80%;
+    }
+
+    #f-password {
+        padding: 1px 0px 1px 10px;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .signin-container {
+        width: 95%;
+    }
+
+    form input {
+        width: 80%;
+    }
+
+    #f-password {
+        display: block;
+        width: 70%;
+        margin: auto;
+        margin-top: 10px;
+        border: solid 1px red;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    .signin-container {
+        width: 100%;
+    }
+
+    .cont {
+        width: 80%;
+    }
+
+    form input {
+        width: 85%;
+    }
+
+    #f-password {
+        display: block;
+        width: 70%;
+        margin: auto;
+        margin-top: 10px;
+        border: solid 1px red;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .signin-container {
+        width: 100%;
+    }
+
+    .cont {
+        width: 90%;
+    }
+
+    form input {
+        width: 95%;
+        font-size: 15px;
+    }
+
+    #f-password {
+        display: block;
+        width: 70%;
+        margin: auto;
+        margin-top: 10px;
+        border: solid 1px red;
+        text-align: center;
+    }
 }

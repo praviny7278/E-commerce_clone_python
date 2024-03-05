@@ -56,7 +56,6 @@ def get_user_id(id):
 @app.route('/user/add', methods=['POST'])
 @cross_origin()
 def reg_user():
-    
     user_name = request.json['name']
     user_email = request.json['email']
     use_phone_number = request.json['phoneNumber']
@@ -69,6 +68,7 @@ def reg_user():
         'password': user_password,
     }
     mongoDb.user.insert_one(user_data)
+    print(user_data)
     return jsonify({'msg': 'You have been registerd successfully'})
 
 
@@ -88,6 +88,9 @@ def login():
     # return jsonify({'msg': 'Email or password does not match'})
     if user and user_password == user['password']:
         session['user_id'] = str(user_id['_id']) 
+        print(user)
+        session['name'] = user['name']
+        session['status'] = (True)
         return jsonify({'msg': "login work", 'session': session}), 200
     else:
         return jsonify({'msg': 'Email or password does not match'}), 404
@@ -97,14 +100,16 @@ def login():
 # Logout Route
 @app.route('/user/logout', methods=['POST'])
 def logout():
-    session.pop('username', None)  # Clear the 'username' key from the session
+    # session['status'] = False
+    # session.pop('username', None)  # Clear the 'username' key from the session
+    session.clear()
 
     # print(session)
     return jsonify({'message': 'Logout successful!'}), 200
 
 
 
-#  Product Route
+# Cart Product Route
 @app.route('/user/product/add', methods=['POST'])
 def product_reg():
     
@@ -112,29 +117,33 @@ def product_reg():
     pro_price = request.json['price']
     pro_image = request.json['image']
     pro_rating = request.json['rating']
-    # pro_id = request.json['id']
+    pro_id = request.json['id']
     
     producr_container = {
-        # 'id': pro_id,
+        'id': pro_id,
         'name': pro_name,
         'price': pro_price,
         'image': pro_image,
         'rating': pro_rating,
     }
     mongoDb.product.insert_one(producr_container)
-    return jsonify({'msg': 'Product successfully registerd'})
+    return jsonify({'msg': 'Product successfully Added'})
 
 
 
-@app.route('/user/item/add', methods=['POST'])
-def item_reg():
-    pro_id = request.json['_id']
+@app.route('/user/item/add/<id>', methods=['PATCH'])
+def item_reg(id):
+    pro_id = request.json['id']
     
-    producr_container = {
-        'product_Id': pro_id
-    }
-    mongoDb.one_product.insert_one(producr_container)
-    return jsonify({'msg': 'successfull.'})
+    new_id = ObjectId(id)
+    # producr_container = {
+    #     'product_Id': pro_id
+    # }
+    result = mongoDb.one_product.update_one({'_id': new_id}, {'$set': {'product_Id': pro_id}})
+    if result.modified_count > 0:
+        return jsonify({'msg': 'Update successful.', 'id': pro_id}), 200
+    else:
+        return jsonify({'msg': 'No matching document found.'}), 404
 
 
 
@@ -152,27 +161,31 @@ def get_one_item():
 
 
 
-# Get All Product Route
+# Get All Cart Product Route
 @app.route('/user/product', methods=['GET'])
 def get_all_product():
+
     product_data = list(mongoDb.product.find({}))
+
     product_data_serializable = [
         {**user, '_id': str(user['_id'])} for user in product_data
     ]
-    print(product_data)
+    # print(product_data)
     return jsonify(product_data_serializable)
 
 
 
-# Get User_data by ID
+# Get Product by ID
 @app.route('/user/product/<id>', methods=['GET'])
 def get_product_id(id):
+    
     uid = ObjectId(id)
     use = mongoDb.product.find_one({'_id': uid})
+
     if use is not None:
         user_data_serializable = {**use, '_id': str(use['_id'])}
         print(user_data_serializable)
-        return jsonify(user_data_serializable)
+        return jsonify(user_data_serializable), 200
     else:
         return jsonify({'message': 'User not found'}), 404
 
@@ -180,29 +193,46 @@ def get_product_id(id):
 # Cart Item Route
 @app.route('/user/cart/add', methods=['POST'])
 def user_product():
-    pro_img = request.json.get('img')
-    pro_name = request.json.get('name')
-    pro_price = request.json.get('price')
-    pro_rating = request.json.get('rating')
-    pro_id = request.json.get('id')
-    # user_id = ObjectId(id)
+    user_id = request.json.get('user_id')
+    cart_item = request.json.get('cart_item')
+    delivery_address = request.json.get('delivery_address')
 
-    product_details = {
-        'id': pro_id,
-        'img': pro_img,
-        'name': pro_name,
-        'price': pro_price,
-        'rating': pro_rating,
-        'order': "successfull",
+
+    item_data = {
+        "user_id": user_id,
+        "cart_item": cart_item,
+        "delivery_address": delivery_address
     }
 
-    cart_item = {
-        "user_id": 'id',
-        "cart_item": product_details
-    }
-
-    mongoDb.cart_items.insert_one(cart_item)
+    mongoDb.cart_items.insert_one(item_data)
     return jsonify({'msg': "Your order have been successflly placed."}), 200
+
+
+
+# Get Product by ID
+# @app.route('/user/cart/data', methods=['GET'])
+# def get_cart_item():
+    
+#     # uid = ObjectId(id)
+#     # print('id: ', uid)
+#     user_data = mongoDb.cart_items.find({})
+#     user_data_list = list(user_data)
+
+#     # if user_data is not None:
+#     #     user_data_serializable = {**user_data, '_id': str(user_data['_id'])}
+#     #     print(user_data_serializable)
+#     return jsonify(user_data_list), 200
+
+
+@app.route('/user/cart/data', methods=['GET'])
+def get_cart_item():
+    user_data_cursor = mongoDb.cart_items.find({})
+    user_data_list = []
+    for item in user_data_cursor:
+        item['_id'] = str(item['_id'])  # Convert ObjectId to string
+        user_data_list.append(item)
+    return jsonify(user_data_list), 200
+
 
 
 
